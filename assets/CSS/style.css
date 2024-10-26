@@ -39,6 +39,7 @@ img {
     color: #222;
     font-weight: 700px;
     border: 1px solid #f00;
+    background: white;
 }
 
 .btn-brand:hover {
