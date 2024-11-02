@@ -33,7 +33,7 @@ a {
 }
 
 img {
-    min-width: 100%;
+    width: 100%;
 }
 
 .btn {
@@ -79,4 +79,16 @@ img {
     width: 50px;
     height: 50vh;
     margin: auto;
+}
+section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+/*divider*/
+#about .divider {
+    width: 200px;
+    height: 5px;
+    background-color: #f00;
+    margin: 50px auto;
 }
