@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
 
+
 .hidden {
     display: none;
 }
@@ -16,16 +17,16 @@ h1, h2, h3, h4, h5, h6 {
     color: #222;
 }
 
-h6 {
-    color: white;
-    text-decoration: underline overline red;
-    text-underline-offset: 8px;
-}
-
 a {
     color: #222;
     text-decoration: none;
     transition: all 0.3s;
+}
+
+h6 {
+    color: white;
+    text-decoration: underline overline red;
+    text-underline-offset: 8px;
 }
 
 .nav-link:hover {
@@ -53,19 +54,18 @@ img {
     background-color: #f00;
     border: 1px solid #222;
 }
-
 /* carousel */
 
 .slide-1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(../images/slide1.webp);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/slide1.webp);
     
 }
 .slide-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(../images/slide2.webp);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/slide2.webp);
    
 }
 .slide-3 {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(../images/slide3.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/slide3.jpg);
 
 }
 .bg-cover {
@@ -80,9 +80,18 @@ img {
     height: 50vh;
     margin: auto;
 }
+
 section {
     padding-top: 150px;
     padding-bottom: 150px;
+}
+.shadow-on-hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.shadow-on-hover:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 /*divider*/
@@ -93,11 +102,22 @@ section {
     margin: 50px auto;
 }
 
+/*intro text*/
+.intro-text {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.intro-text p {
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+}
+
 /*Menu*/
 #menu .nav-pills .nav-link {
     background-color: fff;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
     color: #222;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.986);
 }
@@ -106,4 +126,12 @@ section {
     background-color: #f00;
     color: white;
     border-radius: 50%;
+}
+
+.menu-item {
+    margin-bottom: 50px;
+}
+.menu-item img {
+    width: 100%;
+    border-radius: 10px;
 }
