@@ -135,3 +135,30 @@ section {
     width: 100%;
     border-radius: 10px;
 }
+
+/* Sign in */
+
+.signin-box, .signup-box {
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-control {
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #f00;
+}
+
+.divider-small {
+    width: 60px;
+    height: 3px;
+    background-color: #f00;
+    margin: 20px auto;
+}
