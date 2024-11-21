@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="assets/CSS/style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!--Title-->
 
     <title>Bite Me!</title>
-    
 </head>
 
 <body>
@@ -55,7 +53,7 @@
     </nav>
 
 
-    <!-- booking Section -->
+    <!-- Booking Section -->
     <section class="booking-container">
         <div class="container">
             <div class="row justify-content-center">
@@ -63,6 +61,104 @@
                     <div class="booking-box">
                         <div class="text-center">
                             <h1>Reserve Your Table</h1>
+                            <div class="divider-small"></div>
+                            <p class="mb-4">Book your perfect dining experience with us</p>
+                        </div>
+
+                        <div class="row">
+                            <!-- Booking Form -->
+                            <div class="col-md-8">
+                                <form id="bookingForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-input" placeholder="First Name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-input" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-input" placeholder="Email Number" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="tel" class="form-input" placeholder="Phone Number" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="date" class="form-input" id="datePicker"
+                                                placeholder="Select Date" required>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select name="form-select" required>
+                                                <option value="" selected disabled>Number of Guests</option>
+                                                <option value="1">1 Person</option>
+                                                <option value="2">2 People</option>
+                                                <option value="3">3 People</option>
+                                                <option value="4">4 People</option>
+                                                <option value="5">5 People</option>
+                                                <option value="6">6 People</option>
+                                                <option value="7+">7+ People</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="booking-info">
+                                        <h5>Available Time Slots</h5>
+                                        <div class="time-slots">
+                                            <div class="time-slot">11:00 AM</div>
+                                            <div class="time-slot">11:30 AM</div>
+                                            <div class="time-slot">12:00 PM</div>
+                                            <div class="time-slot">12:30 PM</div>
+                                            <div class="time-slot">1:00 PM</div>
+                                            <div class="time-slot">1:30 PM</div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-input" rows="3"
+                                            placeholder="Special Requests (Optional)"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-brand">Confirm Reservation</button>
+
+                                </form>
+                            </div>
+
+                            <!-- Booking Information -->
+                            <div class="col-md-4">
+                                <div class="booking-info">
+                                    <h5>Opening Hours</h5>
+                                    <table class="hours-table">
+                                        <tr>
+                                            <td>Monday - Friday</td>
+                                            <td>11:00 AM - 11:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturday</td>
+                                            <td>10:00 AM - 11:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sunday</td>
+                                            <td>10:00 AM - 9:00 PM</td>
+                                        </tr>
+                                    </table>
+
+                                    <h5 class="mt-4">Reservation Notes</h5>
+                                    <ul class="small">
+                                        <li>Reservations are help for 15 minutes past the booking time</li>
+                                        <li>For parties of 7 or more, please call us directly</li>
+                                        <li>Special requests are subject to availability</li>
+                                    </ul>
+
+                                    <div class="table-preview"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
