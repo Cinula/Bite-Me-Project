@@ -10,50 +10,178 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/CSS/style.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Title-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .signin-box {
+        .dashboard-container {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        .profile-sidebar {
+            background: white;
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
-        .form-control {
-            border-radius: 25px;
-            padding: 12px 20px;
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #f00;
+        }
+
+        .profile-info h4 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .membership-level {
+            text-align: center;
+            color: #f00;
+            font-weight: bold;
             margin-bottom: 20px;
-            border: 1px solid #ddd;
         }
 
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #f00;
-        }
-
-        .divider-small {
-            width: 60px;
-            height: 3px;
-            background-color: #f00;
+        .points-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #f00;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin: 20px auto;
         }
+
+        .points-circle h3 {
+            margin: 0;
+            color: white;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-nav {
+            margin-bottom: 30px;
+        }
+
+        .dashboard-nav .nav-link {
+            color: #666;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .dashboard-nav .nav-link:hover {
+            background-color: #fff0f0;
+        }
+
+        .dashboard-nav .nav-link.active {
+            background-color: #f00;
+            color: white;
+        }
+
+        .reservation-card {
+            border-left: 4px solid #f00;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .reservation-card:hover {
+            transform: translateX(5px);
+        }
+
+        .favorite-dish {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .favorite-dish:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .favorite-dish img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .favorite-dish-content {
+            padding: 15px;
+        }
+
+        .form-input {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #f00;
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+        }
+
+        .notification {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #fff0f0;
+            border-left: 4px solid #f00;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card h2 {
+            color: #f00;
+            margin: 10px 0;
+        }
     </style>
-    <title>Bite Me!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard - Bite Me!</title>
 </head>
 
 <body>
-
     <!--Navbar-->
-
     <nav class="navbar navbar-expand-lg bg-white shadow py-3 sticky-top">
-        <a class="navbar-brand ms-5" href="#">
+        <a class="navbar-brand ms-5" href="index.html">
             <img src="assets/images/favicon/logo.webp" alt="Bite Me!" width="120" height="65"
                 class="d-inline-block align-top" />
-            <span class="hidden">Bite Me!</span></a>
+            <span class="hidden">Bite Me!</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
             aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,40 +189,37 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="index.html#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="index.html#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#menu">Menu</a>
+                    <a class="nav-link" href="index.html#menu">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#booking">Book table</a>
+                    <a class="nav-link" href="booking.html">Book table</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="index.html#contact">Contact</a>
                 </li>
             </ul>
-
             <!-- Profile Dropdown -->
             <div class="dropdown me-5">
                 <button class="btn btn-brand dropdown-toggle" type="button" id="profileDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Marcin
                 </button>
-
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li><a href="#profile" class="dropdown-item">My Profile</a></li>
-                    <li><a href="#reservations" class="dropdown-item">My Reservations</a></li>
-                    <li><a href="#settings" class="dropdown-item">Settings</a></li>
+                    <li><a class="dropdown-item" href="#profile">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#reservations">My Reservations</a></li>
+                    <li><a class="dropdown-item" href="#settings">Settings</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li><a class="dropdown-item text-danger" href="#logout">Logout</a></li>
                 </ul>
             </div>
-
         </div>
     </nav>
 
@@ -107,19 +232,16 @@
                     <div class="profile-sidebar">
                         <img src="assets/images/profile-placeholder.jpg" alt="Profile" class="profile-image">
                         <div class="profile-info">
-                            <h4>Marcin</h4>
+                            <h4>John Doe</h4>
                             <p class="membership-level">Gold Member</p>
                         </div>
-
                         <div class="points-circle">
                             <span>Loyalty Points</span>
-                            <h3>2,250</h3>
+                            <h3>2,450</h3>
                         </div>
-
                         <div class="text-center mt-4">
                             <button class="btn btn-brand">Redeem Points</button>
                         </div>
-
                     </div>
                 </div>
 
@@ -128,16 +250,16 @@
                     <!-- Dashboard Navigation -->
                     <ul class="nav dashboard-nav">
                         <li class="nav-item">
-                            <a href="#overview" data-bs-toggle="pill" class="nav-link active">Overview</a>
+                            <a class="nav-link active" data-bs-toggle="pill" href="#overview">Overview</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#reservations" data-bs-toggle="pill" class="nav-link">Reservations</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#reservations">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#favorites" data-bs-toggle="pill" class="nav-link">Favorites</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#favorites">Favorites</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#settings" data-bs-toggle="pill" class="nav-link">Settings</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#settings">Settings</a>
                         </li>
                     </ul>
 
@@ -148,199 +270,298 @@
                             <!-- Stats Row -->
                             <div class="row mb-4">
                                 <div class="col-md-4">
-                                    <i class="fas fa-calendar-check fa-2x text-danger"></i>
-                                    <h2>12</h2>
-                                    <p>Total Reservations</p>
+                                    <div class="stat-card">
+                                        <i class="fas fa-calendar-check fa-2x text-danger"></i>
+                                        <h2>12</h2>
+                                        <p>Total Reservations</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-card">
+                                        <i class="fas fa-utensils fa-2x text-danger"></i>
+                                        <h2>8</h2>
+                                        <p>Favorite Dishes</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-card">
+                                        <i class="fas fa-star fa-2x text-danger"></i>
+                                        <h2>4.8</h2>
+                                        <p>Average Rating</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <div class="stat-card">
-                                    <i class="fas fa-utensils fa-2x text-danger"></i>
-                                    <h2>8</h2>
-                                    <p>Favorite Dishes</p>
+                            <!-- Notifications -->
+                            <div class="dashboard-card">
+                                <h5>Recent Notifications</h5>
+                                <div class="notification">
+                                    <p class="mb-0"><strong>Upcoming Reservation:</strong> Your table for 4 is confirmed
+                                        for tomorrow at 7:00 PM</p>
+                                </div>
+                                <div class="notification">
+                                    <p class="mb-0"><strong>Special Offer:</strong> Get 20% off on your next visit -
+                                        Valid until March 31</p>
+                                </div>
+                                <div class="notification">
+                                    <p class="mb-0"><strong>Points Update:</strong> You've earned 100 points from your
+                                        last visit</p>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <div class="stat-card">
-                                    <i class="fas fa-star fa-2x text-danger"></i>
-                                    <h2>4.8</h2>
-                                    <p>Average Rating</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Notifications -->
-                        <div class="dashboard-card">
-                            <h5>Recent Notifications</h5>
-                            <div class="notification">
-                                <p class="mb-0">
-                                    <strong>Upcoming Reservation:</strong> Your table for 4 is confirmed for tomorrow at
-                                    7:00 PM
-                                </p>
-                            </div>
-                            <div class="notification">
-                                <p class="mb-0">
-                                    <strong>Special Offer:</strong> Get 20% off on your next visit - Valid untill March
-                                    31
-                                </p>
-                            </div>
-
-                            <div class="notification">
-                                <p class="mb-0">
-                                    <strong>Points Update:</strong> You've earned 100 points from your last visit
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <!-- Recent Activity -->
-                        <div class="dashboard-card">
-                            <h5>Recent Activity</h5>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Table Reservation</td>
-                                            <td>March 15, 2024</td>
-                                            <td>7:00 PM</td>
-                                            <td><span class="badge bg-success">Confirmed</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Points Earned</td>
-                                            <td>March 10, 2024</td>
-                                            <td>+150 points</td>
-                                            <td><span class="badge bg-info">Credited</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Review Posted</td>
-                                            <td>March 5, 2024</td>
-                                            <td>Pasta Carbonara</td>
-                                            <td><span class="badge bg-primary">Published</span></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Reservation Tab -->
-                         <div class="divider-small"></div>
-                            <div class="tab-content" id="Reservation">
-                                <h5>Upcaming Reservation:</h5>
-                                <div class="card shadow-on-hover mb-3">
+                            <!-- Recent Activity -->
+                            <div class="dashboard-card">
+                                <h5>Recent Activity</h5>
+                                <div class="table-responsive">
                                     <table class="table">
-                                        <tbody class="text-center">
-                                            <th>Date:</th>
-                                            <th>Time:</th>
-                                            <th>Number of Guests:</th>
-                                            <th>Confirmed</th>
-
+                                        <tbody>
                                             <tr>
-                                                <td>March 20,2025</td>
-                                                <td>6:00 PM</td>
-                                                <td>3</td>
-                                                <td>No</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="card shadow-on-hover mb-3">
-                                    <table class="table">
-                                        <tbody class="text-center">
-                                            <th>Date:</th>
-                                            <th>Time:</th>
-                                            <th>Number of Guests:</th>
-                                            <th>Confirmed</th>
-
-                                            <tr>
-                                                <td>March 15,2024</td>
+                                                <td>Table Reservation</td>
+                                                <td>March 15, 2024</td>
                                                 <td>7:00 PM</td>
-                                                <td>4</td>
-                                                <td>Yes</td>
+                                                <td><span class="badge bg-success">Confirmed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Points Earned</td>
+                                                <td>March 10, 2024</td>
+                                                <td>+150 points</td>
+                                                <td><span class="badge bg-info">Credited</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Review Posted</td>
+                                                <td>March 5, 2024</td>
+                                                <td>Pasta Carbonara</td>
+                                                <td><span class="badge bg-primary">Published</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
                                 </div>
-
                             </div>
-                            <div class="divider-small"></div>
-                            <div class="tab-content" id="Reservation">
-                                <h5>Past Reservation:</h5>
-                                <div class="card shadow-on-hover mb-3">
-                                    <table class="table">
-                                        <tbody class="text-center">
-                                            <th>Date:</th>
-                                            <th>Time:</th>
-                                            <th>Number of Guests:</th>
-                                            <th>Confirmed</th>
+                        </div>
 
-                                            <tr>
-                                                <td>March 10,2024</td>
-                                                <td>8:00 PM</td>
-                                                <td>2</td>
-                                                <td>Yes</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>   
+                        <!-- Reservations Tab -->
+                        <div class="tab-pane fade" id="reservations">
+                            <div class="dashboard-card">
+                                <h5>Upcoming Reservations</h5>
+                                <div class="reservation-card p-3 bg-light">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Table for 4</h6>
+                                            <p class="mb-0">March 25, 2024 • 7:00 PM</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-sm btn-outline-danger">Modify</button>
+                                            <button class="btn btn-sm btn-outline-secondary">Cancel</button>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="card shadow-on-hover mb-3">
-                                    <table class="table">
-                                        <tbody class="text-center">
-                                            <th>Date:</th>
-                                            <th>Time:</th>
-                                            <th>Number of Guests:</th>
-                                            <th>Confirmed</th>
-
-                                            <tr>
-                                                <td>March 10,2024</td>
-                                                <td>8:00 PM</td>
-                                                <td>4</td>
-                                                <td>Yes</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <h5 class="mt-4">Past Reservations</h5>
+                                <div class="reservation-card p-3 bg-light">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Table for 2</h6>
+                                            <p class="mb-0">March 15, 2024 • 8:00 PM</p>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-danger">Leave Review</button>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="card shadow-on-hover mb-3">
-                                    <table class="table">
-                                        <tbody class="text-center">
-                                            <th>Date:</th>
-                                            <th>Time:</th>
-                                            <th>Number of Guests:</th>
-                                            <th>Confirmed</th>
-
-                                            <tr>
-                                                <td>March 10,2024</td>
-                                                <td>8:00 PM</td>
-                                                <td>5</td>
-                                                <td>Yes</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    
+                        <!-- Favorites Tab -->
+                        <div class="tab-pane fade" id="favorites">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="favorite-dish">
+                                        <img src="assets/images/menu/pasta carbonara.webp" alt="Pasta Carbonara">
+                                        <div class="favorite-dish-content">
+                                            <h5>Pasta Carbonara</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>$12.99</span>
+                                                <button class="btn btn-sm btn-outline-danger">Order Again</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="favorite-dish">
+                                        <img src="assets/images/menu/salomon.webp" alt="Grilled Salmon">
+                                        <div class="favorite-dish-content">
+                                            <h5>Grilled Salmon</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>$24.99</span>
+                                                <button class="btn btn-sm btn-outline-danger">Order Again</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="favorite-dish">
+                                        <img src="assets/images/menu/stake-n-chips.webp" alt="Steak & Chips">
+                                        <div class="favorite-dish-content">
+                                            <h5>Steak & Chips</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>$29.99</span>
+                                                <button class="btn btn-sm btn-outline-danger">Order Again</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            </div>     
+                            <!-- Recommended Dishes -->
+                            <div class="dashboard-card">
+                                <h5>Recommended for You</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="favorite-dish">
+                                            <img src="assets/images/menu/chicken.webp" alt="Grilled Chicken">
+                                            <div class="favorite-dish-content">
+                                                <h5>Grilled Chicken</h5>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>$18.99</span>
+                                                    <button class="btn btn-sm btn-outline-danger">Add to
+                                                        Favorites</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="favorite-dish">
+                                            <img src="assets/images/menu/sushi.webp" alt="Sushi Platter">
+                                            <div class="favorite-dish-content">
+                                                <h5>Sushi Platter</h5>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>$32.99</span>
+                                                    <button class="btn btn-sm btn-outline-danger">Add to
+                                                        Favorites</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Settings Tab -->
+                        <div class="tab-pane fade" id="settings">
+                            <div class="dashboard-card">
+                                <h5>Profile Settings</h5>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="mb-2">First Name</label>
+                                            <input type="text" class="form-input" value="John">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="mb-2">Last Name</label>
+                                            <input type="text" class="form-input" value="Doe">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="mb-2">Email</label>
+                                            <input type="email" class="form-input" value="john.doe@example.com">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="mb-2">Phone Number</label>
+                                            <input type="tel" class="form-input" value="+1 234 567 8900">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="mb-2">Address</label>
+                                        <input type="text" class="form-input" value="123 Restaurant Street">
+                                    </div>
+                                    <button type="submit" class="btn btn-brand">Save Changes</button>
+                                </form>
+                            </div>
+
+                            <div class="dashboard-card">
+                                <h5>Preferences</h5>
+                                <form>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">Email
+                                            Notifications</label>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="smsNotifications" checked>
+                                        <label class="form-check-label" for="smsNotifications">SMS Notifications</label>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="promotionalEmails" checked>
+                                        <label class="form-check-label" for="promotionalEmails">Promotional
+                                            Emails</label>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="specialOffers">
+                                        <label class="form-check-label" for="specialOffers">Special Offers</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-brand">Save Preferences</button>
+                                </form>
+                            </div>
+
+                            <div class="dashboard-card">
+                                <h5>Security</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="mb-2">Current Password</label>
+                                        <input type="password" class="form-input" placeholder="Enter current password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="mb-2">New Password</label>
+                                        <input type="password" class="form-input" placeholder="Enter new password">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="mb-2">Confirm New Password</label>
+                                        <input type="password" class="form-input" placeholder="Confirm new password">
+                                    </div>
+                                    <button type="submit" class="btn btn-brand">Change Password</button>
+                                </form>
+                            </div>
+
+                            <div class="dashboard-card">
+                                <h5>Delete Account</h5>
+                                <p class="text-muted">Once you delete your account, there is no going back. Please be
+                                    certain.</p>
+                                <button class="btn btn-outline-danger">Delete Account</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <script>
+        // Password strength indicator
+        document.querySelectorAll('input[type="password"]').forEach(input => {
+            input.addEventListener('input', function () {
+                // Add your password strength validation logic here
+            });
+        });
+
+        // Form submission handlers
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // Add your form submission logic here
+                alert('Changes saved successfully!');
+            });
+        });
+
+        // Delete account confirmation
+        document.querySelector('.btn-outline-danger').addEventListener('click', function () {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                // Add your account deletion logic here
+            }
+        });
+    </script>
 </body>
 
 </html>
