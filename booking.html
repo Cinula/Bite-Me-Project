@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -295,3 +296,40 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize date picker
+        flatpickr("#datePicker", {
+            minDate: "today",
+            maxDate: new Date().fp_incr(30), // Allow booking up to 30 days in advance
+            disable: [
+                function (date) {
+                    // Disable Tuesdays
+                    return date.getDay() === 2;
+                }
+            ],
+            dateFormat: "F j, Y"
+        });
+
+        // Time slot selection
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            slot.addEventListener('click', function () {
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const selectedTime = document.querySelector('.time-slot.selected');
+            if (!selectedTime) {
+                alert('Please select a time slot');
+                return;
+            }
+            // Add your form submission logic here
+            alert('Booking submitted successfully!');
+        });
+    </script>
+</body>
+
+</html>
